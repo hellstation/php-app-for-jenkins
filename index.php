@@ -1,56 +1,51 @@
-<?
-if ($_SERVER['REQUEST_METHOD'] === 'POST')
-{
-  $file = '/tmp/sample-app.log';
-  $message = file_get_contents('php://input');
-  file_put_contents($file, date('Y-m-d H:i:s') . " Received message: " . $message . "\n", FILE_APPEND);
-}
-else
-{
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $file = '/tmp/sample-app.log';
+    $message = file_get_contents('php://input');
+    file_put_contents($file, date('Y-m-d H:i:s') . " Received message: " . $message . "\n", FILE_APPEND);
+} else {
 ?>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHP Application - AWS Elastic Beanstalk</title>
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lobster+Two" type="text/css">
-    <link rel="icon" href="https://awsmedia.s3.amazonaws.com/favicon.ico" type="image/ico" >
-    <link rel="shortcut icon" href="https://awsmedia.s3.amazonaws.com/favicon.ico" type="image/ico" >
-    <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    <link rel="stylesheet" href="/styles.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://awsmedia.s3.amazonaws.com/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="https://awsmedia.s3.amazonaws.com/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     <section class="congratulations">
-        <h1><font color=red>Congratulations <br><font color=gold>DevOps Engineer!!!</font></h1>
+        <h1>Congratulations<br><span>DevOps Engineer!!!</span></h1>
         <p>Your AWS Elastic Beanstalk <em>PHP</em> application is now running on your own dedicated environment in the AWS&nbsp;Cloud</p>
-        <p>You are running PHP version <?= phpversion() ?></p>
+        <p>You are running PHP version <?php echo phpversion(); ?></p>
     </section>
 
     <section class="instructions">
         <h2>What's Next?</h2>
         <ul>
-            <li><a href="http://docs.amazonwebservices.com/elasticbeanstalk/latest/dg/">AWS Elastic Beanstalk overview</a></li>
-            <li><a href="http://docs.amazonwebservices.com/elasticbeanstalk/latest/dg/create_deploy_PHP_eb.html">Deploying AWS Elastic Beanstalk Applications in PHP Using Eb and Git</a></li>
-            <li><a href="http://docs.amazonwebservices.com/elasticbeanstalk/latest/dg/create_deploy_PHP.rds.html">Using Amazon RDS with PHP</a>
-            <li><a href="http://docs.amazonwebservices.com/elasticbeanstalk/latest/dg/customize-containers-ec2.html">Customizing the Software on EC2 Instances</a></li>
-            <li><a href="http://docs.amazonwebservices.com/elasticbeanstalk/latest/dg/customize-containers-resources.html">Customizing Environment Resources</a></li>
+            <li><a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/">AWS Elastic Beanstalk overview</a></li>
+            <li><a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-php-eb.html">Deploying AWS Elastic Beanstalk Applications in PHP Using Eb and Git</a></li>
+            <li><a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-php-rds.html">Using Amazon RDS with PHP</a></li>
+            <li><a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customize-containers-ec2.html">Customizing the Software on EC2 Instances</a></li>
+            <li><a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customize-containers-resources.html">Customizing Environment Resources</a></li>
         </ul>
 
         <h2>AWS SDK for PHP</h2>
         <ul>
-            <li><a href="http://aws.amazon.com/sdkforphp">AWS SDK for PHP home</a></li>
-            <li><a href="http://aws.amazon.com/php">PHP developer center</a></li>
+            <li><a href="https://aws.amazon.com/sdk-for-php/">AWS SDK for PHP home</a></li>
+            <li><a href="https://aws.amazon.com/php/">PHP developer center</a></li>
             <li><a href="https://github.com/aws/aws-sdk-php">AWS SDK for PHP on GitHub</a></li>
         </ul>
-		<h2> Some Picture</h2>
-		<img src="image.jpg">
+        <h2>Some Picture</h2>
+        <img src="image.jpg" alt="Sample Image">
     </section>
-
-    <!--[if lt IE 9]><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
 </body>
 </html>
-<? 
-} 
+<?php
+}
 ?>
